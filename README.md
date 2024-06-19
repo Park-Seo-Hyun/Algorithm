@@ -1,1 +1,1 @@
-# CodingTest_C
+# CodingTest
