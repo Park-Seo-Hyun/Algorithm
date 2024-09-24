@@ -1,18 +1,18 @@
 #include <stdio.h>
+
 int main(void) {
-    int x, y;
-    scanf("%d %d", &x, &y);
-    if (x > 0 && y > 0) {
-        printf("%d", 1);
-    }
-    else if (x < 0 && y > 0) {
-        printf("%d", 2);
-    }
-    else if (x < 0 && y < 0) {
-        printf("%d", 3);
-    }
-    else {
-        printf("%d", 4);
-    }
-    return 0;
+
+	int A, B;
+	scanf("%d %d", &A, &B);
+
+	if (A > 0) {
+		if (B > 0) printf("%d", 1);
+		else if (B < 0) printf("%d", 4);
+	}
+	else if (A < 0) {
+		if (B > 0) printf("%d", 2);
+		else if (B < 0) printf("%d", 3);
+	}
+
+	return 0;
 }
