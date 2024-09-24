@@ -1,30 +1,18 @@
 #include <stdio.h>
-#include <stdlib.h>
-int main(void) {
-    int num1, num2, num3;
-    scanf("%d %d %d", &num1, &num2, &num3);
-    if (num1 == num2 && num2 == num3) {
-        printf("%d", 10000 + 1000 * num1);
-    }
-    else if (num1 == num2 || num1 == num3) {
-        printf("%d", 1000 + 100 * num1);
-    }
-    else if (num2 == num3) {
-        printf("%d", 1000 + 100 * num2);
-    }
-    else {
-        if (num1 > num2 && num1 > num3) {
-            printf("%d", 100 * num1);
-        }
-        else if (num2 > num1 && num2 > num3) {
-            printf("%d", 100 * num2);
-        }
-        else {
-            printf("%d", 100 * num3);
-        }
-    }
-    
 
-    
-    return 0;
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+
+int main(void) {
+
+	int H, M, T, A;
+	scanf("%d %d %d", &H, &M, &T);
+
+	if (H == M && M == T) A = 10000 + H * 1000;
+	else if (H == M || H == T) A = 1000 + H * 100;
+	else if (M == T) A = 1000 + M * 100;
+	else A =  MAX(MAX(H, M), T) * 100;
+
+	printf("%d", A);
+
+	return 0;
 }
