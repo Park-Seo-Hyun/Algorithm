@@ -1,10 +1,9 @@
 #include <stdio.h>
-#include <string.h>
-int main() {
+
+
+int main(void) {
 	char arr;
 	scanf("%c", &arr);
 	printf("%d", arr);
-
-	
 	return 0;
 }
