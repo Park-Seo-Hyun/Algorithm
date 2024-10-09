@@ -1,15 +1,14 @@
 #include <stdio.h>
-#include <string.h>
 
-int main() {
-	char arr[100] = { 0 };
+int main(void) {
+	char arr[101] = { 0, };
 	scanf("%s", arr);
-	for (int i = 97; i <= 122; i++) {
+	
+	for (int i = 97; i < 123; i++) {
 		int j = 0;
 		while (arr[j] != 0) {
-			if (arr[j] == (char)i) {
-				break;
-			}
+			if (arr[j] == (char)i) break;
+
 			j++;
 		}
 		if (arr[j] == (char)i) {
@@ -18,6 +17,8 @@ int main() {
 		else {
 			printf("%d ", -1);
 		}
+
 	}
+
 	return 0;
 }
