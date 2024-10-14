@@ -1,32 +1,29 @@
 #include <stdio.h>
-#include<stdlib.h>
 #include <string.h>
 
 int main(void) {
-	char* arr = (char*)malloc(sizeof(char) * 101);
-	int cnt, sub = 0, total = 0;
-	scanf("%d", &cnt);
-	for (int i = 0; i < cnt; i++) {
-		int num = 0;
+	int num, total = 0;
+	scanf("%d", &num);
+	
+	while (num > 0) {
+		char arr[101];
+		int hap = 0;
 		scanf("%s", arr);
 		int len = strlen(arr);
-		for (int j = 0; j < len; j++) {
-			for (int k = j + 1; k < len; k++) {
-				if (arr[j] == arr[k]) {
-					sub = k - j;
+		for (int i = 0; i < len; i++) {
+			for (int j = i + 1; j < len; j++) {
+				if (arr[i] == arr[j]) {
+					int sub = j - i;
 					if (sub >= 2) {
-						if (arr[j] != arr[k - 1]) {
-							num++;
-						}
+						if (arr[i] != arr[j - 1]) hap++;
 					}
 				}
 			}
 		}
-		if (num == 0) {
-			total++;
-		}
+		if (hap == 0) total++;
+		num--;
 	}
 	printf("%d", total);
-	free(arr);
+
 	return 0;
 }
