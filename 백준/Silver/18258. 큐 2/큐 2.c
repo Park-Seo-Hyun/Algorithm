@@ -1,70 +1,67 @@
 #include <stdio.h>
 #include <string.h>
 
-typedef struct Queue {
-    int data[2000000];
-    int front, rear;
-} Queue;
+#define MAX_SIZE 2000000
 
-void init(Queue *q) {
-    q->front = q->rear = -1;
+typedef struct Queue{
+	int front, rear;
+	int data[MAX_SIZE];
+}Queue;
+
+void init_queue(Queue* q) {
+	q->front = -1;
+	q->rear = -1;
 }
 
-int is_empty(Queue *q) {
-    return (q->front == q->rear);
+int is_empty(Queue* q) {
+	return (q->front == q->rear);
 }
 
-int size(Queue *q) {
-    if (is_empty(q)) {
-        return 0;
-    }
-    return (q->rear - q->front);
+int queue_size(Queue* q) {
+	if (is_empty(q)) return 0;
+	else return (q->rear - q->front);
 }
 
-void push(Queue *q, int data) {
-    q->data[++(q->rear)] = data;
+void push(Queue* q, int x) {
+	q->data[++(q->rear)] = x;
 }
 
-int pop(Queue *q) {
-    if (is_empty(q)) return -1;
-    return q->data[++(q->front)];
+int pop(Queue* q) {
+	if (is_empty(q)) return -1;
+	else return q->data[++(q->front)];
 }
 
-int front(Queue *q) {
-    if (is_empty(q)) return -1;
-    return q->data[q->front + 1];
+int front(Queue* q) {
+	if (is_empty(q)) return -1;
+	return q->data[q->front + 1];
 }
 
-int back(Queue *q) {
-    if (is_empty(q)) return -1;
-    return q->data[q->rear];
+int back(Queue* q) {
+	if (is_empty(q)) return -1;
+	return q->data[q->rear];
 }
 
 int main(void) {
-    Queue q;
-    init(&q);
+	Queue q;
+	init_queue(&q);
+	
+	int n;
+	scanf("%d", &n);
 
-    int N;
-    scanf("%d", &N);
+	while (n--) {
+		char mission[6];
+		scanf("%s", mission);
+		if (!strcmp(mission, "push")) {
+			int data;
+			scanf("%d", &data);
+			push(&q, data);
+		}
+		else if (!strcmp(mission, "front")) printf("%d\n", front(&q));
+		else if (!strcmp(mission, "back")) printf("%d\n", back(&q));
+		else if (!strcmp(mission, "size")) printf("%d\n", queue_size(&q));
+		else if (!strcmp(mission, "empty")) printf("%d\n", is_empty(&q));
+		else if (!(strcmp(mission, "pop"))) printf("%d\n", pop(&q));
+	}
 
-    while(N--) {
-        char str[6];
-        scanf("%s", str);
-        if (!strcmp(str, "push")) {
-            int data = 0;
-            scanf("%d", &data);
-            push(&q, data);
-        }
-        else if (!strcmp(str, "front"))
-            printf("%d\n", front(&q));
-        else if (!strcmp(str, "back"))
-            printf("%d\n", back(&q));
-        else if (!strcmp(str, "pop"))
-            printf("%d\n", pop(&q));
-        else if (!strcmp(str, "size"))
-            printf("%d\n", size(&q));
-        else if (!strcmp(str, "empty"))
-            printf("%d\n", is_empty(&q));
-    }
-    return 0;
+	return 0;
 }
