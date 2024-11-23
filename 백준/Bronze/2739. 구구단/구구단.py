@@ -1,3 +1,3 @@
-a = int(input())
+n = int(input())
 for i in range(1, 10):
-    print('{} * {} = {}'.format(a, i, a * i))
+    print('{} * {} = {}'.format(n, i, n * i))
