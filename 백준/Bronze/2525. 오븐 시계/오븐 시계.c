@@ -1,14 +1,18 @@
 #include <stdio.h>
+
 int main(void) {
-    int h, m, time;
-    scanf("%d %d\n", &h, &m);
-    scanf("%d", &time);
-    h += time / 60;
-    m += time % 60;
-    if (m >= 60) {
-        h++;
-        m %= 60;
-    }
-    printf("%d %d", h % 24, m);
-    return 0;
+
+	int H, M, T;
+	scanf("%d %d", &H, &M);
+	scanf("%d", &T);
+
+	M += T;
+
+	if (M >= 60) {
+		H = (H + (M / 60))% 24;
+		M %= 60;
+	}
+
+	printf("%d %d", H, M);
+	return 0;
 }
