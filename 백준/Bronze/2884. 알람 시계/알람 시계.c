@@ -1,12 +1,15 @@
 #include <stdio.h>
+
 int main(void) {
-    int h, m;
-    scanf("%d %d", &h, &m);
-    if (m >= 45) {
-        printf("%d %d", h, m - 45);
-    }
-    else {
-        printf("%d %d", (h + 23) % 24, (m + 15) % 60);
-    }
-    return 0;
+	int h, m;
+	scanf("%d %d", &h, &m);
+
+	m -= 45;
+	if (m < 0) {
+		m += 60;
+		h = (h - 1 + 24) % 24;
+	}
+	
+	printf("%d %d", h, m);
+	return 0; 
 }
