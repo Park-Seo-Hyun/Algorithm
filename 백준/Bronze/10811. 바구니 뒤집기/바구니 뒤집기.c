@@ -1,28 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 int main(void) {
-	int n, m, I, J;
+	int n, m, i, j;
 	scanf("%d %d", &n, &m);
-	int* arr = (int*)malloc(sizeof(int) * n);
-	for (int i = 0; i < n; i++) {
-		arr[i] = i + 1;
+	int* arr = (int*)malloc(sizeof(int) * (n + 1));
+	for (int i = 0; i < n + 1; i++) {
+		arr[i] = i;
 	}
-	while (m > 0) {
-		scanf("%d %d", &I, &J);
-		while (I < J) {
-			int temp = arr[I - 1];
-			arr[I - 1] = arr[J - 1];
-			arr[J - 1] = temp;
-			I++;
-			J--;
+	while (m--) {
+		scanf("%d %d", &i, &j);
+		while (i < j) {
+			int tmp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = tmp;
+			i++;
+			j--;
 		}
-		m--;
 	}
-	for (int i = 0; i < n; i++) {
+	for (int i = 1; i < n + 1; i++) {
 		printf("%d ", arr[i]);
 	}
-
-	return 0;
+	free(arr);
+	return 0; 
 }
