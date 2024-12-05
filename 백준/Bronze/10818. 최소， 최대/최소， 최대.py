@@ -1,11 +1,11 @@
-n= int(input())
-arr = list(map(int, input().split()))
-max = arr[0]
-min = arr[0]
+n = int(input())
+arr = list(map(int, input().split()[:n]))
 
-for i in arr[1:]:
-    if (min > i):
-        min = i
-    if (max < i):
+min = arr[0]
+max = arr[0]
+for i in arr:
+    if(i > max):
         max = i
-print(min, max)
+    if (i < min):
+        min = i
+print('{} {}'.format(min, max))
