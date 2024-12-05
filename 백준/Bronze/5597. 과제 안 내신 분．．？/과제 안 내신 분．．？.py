@@ -1,7 +1,7 @@
-arr = [0] * 30
+arr = [0] * 31
 for i in range(28):
-    num = int(input())
-    arr[num - 1] = 1
-for i in range(30):
+    n = int(input())
+    arr[n] = 1
+for i in range(1, 31):
     if(arr[i] == 0):
-        print(i + 1)
+        print(i)
