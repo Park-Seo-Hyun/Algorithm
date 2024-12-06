@@ -1,18 +1,20 @@
 #include <stdio.h>
 #include <string.h>
 
-int main() {
-	int num1, num2;
+
+
+int main(void) {
 	char arr[21];
-	scanf("%d", &num1);
-	while (num1--) {
-		scanf("%d %s", &num2, arr);
+	int n, m;
+	scanf("%d", &n);
+	while (n--) {
+		scanf("%d %s", &m, arr);
 		for (int i = 0; i < strlen(arr); i++) {
-			for (int j = 0; j < num2; j++) {
+			for (int j = 0; j < m; j++) {
 				printf("%c", arr[i]);
 			}
 		}
-		printf("\n");
+        printf("\n");
 	}
-	return 0;
+	return 0; 
 }
