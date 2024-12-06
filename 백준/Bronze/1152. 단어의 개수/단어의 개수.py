@@ -1,11 +1,9 @@
-n = input()
-len = len(n)
-if(n[0] == ' '):
-    if(len == 1):
-        print(0)
-        exit()
-num = 0
-for i in range(1, len - 1):
-    if(n[i] == ' '):
-        num += 1
-print(num + 1)
+arr = input()
+cnt = 0
+if(arr[0] == ' ' and len(arr) == 1):
+    print(cnt)
+    exit()
+for i in range(1, len(arr) - 1):
+    if(arr[i] == ' '):
+        cnt += 1
+print(cnt + 1)
