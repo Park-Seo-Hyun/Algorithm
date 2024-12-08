@@ -2,28 +2,26 @@
 #include <string.h>
 
 int main(void) {
-	int num, total = 0;
-	scanf("%d", &num);
+	int n, total = 0;
+	char arr[101];
+	scanf("%d", &n);
 	
-	while (num > 0) {
-		char arr[101];
-		int hap = 0;
+	while (n--) {
 		scanf("%s", arr);
-		int len = strlen(arr);
-		for (int i = 0; i < len; i++) {
-			for (int j = i + 1; j < len; j++) {
+		int hap = 1;
+		for (int i = 0; i < strlen(arr); i++) {
+			for (int j = i + 1; j < strlen(arr); j++) {
 				if (arr[i] == arr[j]) {
-					int sub = j - i;
-					if (sub >= 2) {
-						if (arr[i] != arr[j - 1]) hap++;
+					if (j - i >= 2) {
+						if (arr[i] != arr[j - 1]) {
+							hap = 0;
+						}
 					}
 				}
 			}
 		}
-		if (hap == 0) total++;
-		num--;
+		if (hap) total++;
 	}
 	printf("%d", total);
-
-	return 0;
+	return 0; 
 }
