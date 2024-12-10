@@ -1,23 +1,22 @@
 #include <stdio.h>
 
-int main(void) {
-	int n, b, i = 0, num;
-	char arr[101];
-	scanf("%d %d", &n, &b);
-	while (n > 0) {
-		num = n % b;
-		if (num >= 10) {
-			arr[i] = num + 55;
+void change(int n, int m) {
+	if (n > 0) {
+		change(n / m, m);
+		int remain = n % m;
+		if (remain >= 10 && remain <= 35) {
+			printf("%c", remain + 55);
 		}
 		else {
-			arr[i] = num + '0';
+			printf("%d", remain);
 		}
-		n /= b;
-		i++;
 	}
-	for (int j = i - 1; j >= 0; j--) {
-		printf("%c", arr[j]);
-	}
+}
 
-	return 0;
+int main(void) {
+	int n, m;
+	scanf("%d %d", &n, &m);
+	change(n, m);
+	
+	return 0; 
 }
