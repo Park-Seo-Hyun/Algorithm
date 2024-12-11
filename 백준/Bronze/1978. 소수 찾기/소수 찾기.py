@@ -1,13 +1,12 @@
 n = int(input())
-total = 0
 arr = list(map(int, input().split()[:n]))
-
+total = 0
 for i in arr:
-    num = i
     hap = 0
-    for j in range(1, num + 1):
-        if(num % j == 0):
-            hap += 1
-    if(hap == 2):
-        total += 1
+    if (i > 1):   
+        for j in range(2, i):
+            if(i % j == 0):
+                hap += 1
+        if(not hap):
+            total += 1
 print(total)
