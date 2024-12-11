@@ -4,16 +4,11 @@ int main(void) {
 	int x, y;
 	while (1) {
 		scanf("%d %d", &x, &y);
-		if (x == 0 && y == 0) return 0;
-
-		if (y % x == 0) {
-			printf("%s\n", "factor");
-		}
-		else if (x % y == 0) {
-			printf("%s\n", "multiple");
-		}
-		else printf("%s\n", "neither");
+		if (x == 0 && y == 0) break;
+		if (x % y == 0) printf("multiple\n");
+		else if (y % x == 0) printf("factor\n");
+		else printf("neither\n");
 	}
-							 
-	return 0;				 
+	
+	return 0; 
 }
