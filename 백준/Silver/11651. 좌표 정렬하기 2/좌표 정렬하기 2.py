@@ -1,9 +1,8 @@
-n = int(input())
 arr = []
-while(n > 0):
-    num = list(map(int, input().split()))
+n = int(input())
+for i in range(n):
+    num = list(map(int, input().split()[:2]))
     arr.append(num)
-    n -= 1
-arr.sort(key = lambda x: (x[1], x[0]))
-for i in range(len(arr)):
+arr.sort(key = lambda x : (x[1], x[0]))
+for i in range(n):
     print('{} {}'.format(arr[i][0], arr[i][1]))
