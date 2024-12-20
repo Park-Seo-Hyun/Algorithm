@@ -1,6 +1,10 @@
 #include <stdio.h>
 
-long long int factorial(long long int n);
+long long int factorial(long long int n) {
+	if (n <= 1) return 1;
+	else return n * factorial(n - 1);
+}
+
 
 int main(void) {
 	long long int n;
@@ -9,11 +13,4 @@ int main(void) {
 		scanf("%lld", &n);
 	}
 	printf("%lld", factorial(n));
-
-	return 0;
-}
-
-long long int factorial(long long int n) {
-	if (n == 1 || n == 0) return 1;
-	else return n * factorial(n - 1);
 }
