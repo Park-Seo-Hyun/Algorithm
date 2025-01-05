@@ -1,27 +1,25 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
-int change(char num[]);
+
 
 int main(void) {
 	char num1[4], num2[4];
 	scanf("%s %s", num1, num2);
-	int n1 = change(num1);
-	int n2 = change(num2);
-	if (n1 > n2) printf("%d", n1);
-	else printf("%d", n2);
 
+	char tmp1 = num1[0];
+	num1[0] = num1[2];
+	num1[2] = tmp1;
 
+	char tmp2 = num2[0];
+	num2[0] = num2[2];
+	num2[2] = tmp2;
+
+	int num11 = atoi(num1);
+	int num22 = atoi(num2);
+
+	if (num11 > num22) printf("%d", num11);
+	else printf("%d", num22);
 	return 0;
-}
-
-int change(char num[]) {
-	int len = strlen(num);
-	for (int i = 0; i < len / 2; i++) {
-		int temp = num[i];
-		num[i] = num[len - i - 1];
-		num[len - i - 1] = temp;
-	}
-
-	return atoi(num);
 }
