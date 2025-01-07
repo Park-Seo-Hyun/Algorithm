@@ -1,21 +1,25 @@
 #include <stdio.h>
+#include <math.h>
 
 int main(void) {
-	int m, n, min = 10001, total = 0;
-	scanf("%d", &m);
-	scanf("%d", &n);
-	for (int i = m; i < n + 1; i++) {
-		int hap = 0;
-		for (int j = 1; j < i + 1; j++) {
-			if (i % j == 0) hap++;
+	int a, b, total = 0, min = 10001;
+	scanf("%d", &a);
+	scanf("%d", &b);
+	for (int i = a; i < b + 1; i++) {
+		if (i == 1) continue;
+		int prime = 1;
+		for (int j = 2; j < (int)sqrt(i) + 1; j++) {
+			if (i % j == 0) {
+				prime = 0;
+				break;
+			}
 		}
-		if (hap == 2) {
+		if (prime) {
 			total += i;
 			if (i < min) min = i;
 		}
 	}
-	if(total == 0) printf("-1");
-	else printf("%d\n%d", total, min);
-						 
-	return 0;				 
-}	
+	if (total) printf("%d\n%d", total, min);
+	else printf("-1");
+	return 0;
+}
