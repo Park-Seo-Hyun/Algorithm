@@ -1,14 +1,13 @@
 #include <stdio.h>
 
 int main(void) {
-	int x, y;
+	int a, b;
 	while (1) {
-		scanf("%d %d", &x, &y);
-		if (x == 0 && y == 0) break;
-		if (x % y == 0) printf("multiple\n");
-		else if (y % x == 0) printf("factor\n");
+		scanf("%d %d", &a, &b);
+		if (a == 0 && b == 0) break;
+		if (a % b == 0) printf("multiple\n");
+		else if (b % a == 0) printf("factor\n");
 		else printf("neither\n");
 	}
-	
-	return 0; 
+	return 0;
 }
