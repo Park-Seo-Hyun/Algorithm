@@ -1,23 +1,22 @@
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
 
 int main(void) {
-	char n[100];
-	int b, num, hap = 0;
-	scanf("%s %d", n, &b);
-	int length = strlen(n) - 1;
-	for (int i = 0; i < strlen(n); i++) {
-		if (n[i] >= '0' && n[i] <= '9') {
-			num = n[i] - '0';
+	char arr[100];
+	int n, total = 0, pos = 1;
+	scanf("%s %d", arr, &n);
+	for (int i = strlen(arr) - 1; i >= 0; i--) {
+		int num = arr[i];
+		if (num >= 65 && num <= 90) {
+			num -= 55;
 		}
-		else {
-			num = n[i] - 'A' + 10;
+		if (num >= '0' && num <= '9') {
+			num -= '0';
 		}
-		hap += pow(b, length) * num;
-		length--;
+		total += num * pos;
+		pos *= n;
 	}
-	printf("%d", hap);
+	printf("%d", total);
 
 	return 0;
 }
